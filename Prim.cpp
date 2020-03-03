@@ -11,8 +11,8 @@ void prim(int graph[][MAX], int n)
     int i, j, min, minid, sum = 0;  
     for (i = 2; i <= n; i++)  
     {  
-        lowcost[i] = graph[1][i];//lowcost´æ·Å¶¥µã1¿É´ïµãµÄÂ·¾¶³¤¶È 
-        mst[i] = 1;//³õÊ¼»¯ÒÔ1Î»ÆðÊ¼µã 
+        lowcost[i] = graph[1][i];//lowcostå­˜æ”¾é¡¶ç‚¹1å¯è¾¾ç‚¹çš„è·¯å¾„é•¿åº¦ 
+        mst[i] = 1;//åˆå§‹åŒ–ä»¥1ä½èµ·å§‹ç‚¹ 
     }  
     mst[1] = 0;  
     for (i = 2; i <= n; i++)  
@@ -23,32 +23,32 @@ void prim(int graph[][MAX], int n)
         {  
             if (lowcost[j] < min && lowcost[j] != 0)  
             {  
-                min = lowcost[j];//ÕÒ³öÈ¨Öµ×î¶ÌµÄÂ·¾¶³¤¶È 
-                minid = j; //ÕÒ³ö×îÐ¡µÄID 
+                min = lowcost[j];//æ‰¾å‡ºæƒå€¼æœ€çŸ­çš„è·¯å¾„é•¿åº¦ 
+                minid = j; //æ‰¾å‡ºæœ€å°çš„ID 
             }  
         }  
         printf("V%d-V%d=%d\n",mst[minid],minid,min); 
-        sum += min;//ÇóºÍ 
-        lowcost[minid] = 0;//¸Ã´¦×î¶ÌÂ·¾¶ÖÃÎª0 
+        sum += min;//æ±‚å’Œ 
+        lowcost[minid] = 0;//è¯¥å¤„æœ€çŸ­è·¯å¾„ç½®ä¸º0 
         for (j = 2; j <= n; j++)
         {  
-            if (graph[minid][j] < lowcost[j])//¶ÔÕâÒ»µãÖ±´ïµÄ¶¥µã½øÐÐÂ·¾¶¸üÐÂ 
+            if (graph[minid][j] < lowcost[j])//å¯¹è¿™ä¸€ç‚¹ç›´è¾¾çš„é¡¶ç‚¹è¿›è¡Œè·¯å¾„æ›´æ–° 
             {  
                 lowcost[j] = graph[minid][j];  
                 mst[j] = minid;
             }  
         }  
     }  
-    printf("×îÐ¡È¨ÖµÖ®ºÍ=%d\n",sum);
+    printf("æœ€å°æƒå€¼ä¹‹å’Œ=%d\n",sum);
 }  
 int main()  
 {  
     int i, j, k, m, n;  
     int x, y, cost;  
-    //freopen("1.txt","r",stdin);//ÎÄ¼þÊäÈë 
-    scanf("%d%d",&m,&n);//m=¶¥µãµÄ¸öÊý£¬n=±ßµÄ¸öÊý  
+    //freopen("1.txt","r",stdin);//æ–‡ä»¶è¾“å…¥ 
+    scanf("%d%d",&m,&n);//m=é¡¶ç‚¹çš„ä¸ªæ•°ï¼Œn=è¾¹çš„ä¸ªæ•°  
 
-    for (i = 1; i <= m; i++)//³õÊ¼»¯Í¼ 
+    for (i = 1; i <= m; i++)//åˆå§‹åŒ–å›¾ 
     {  
         for (j = 1; j <= m; j++)  
         {  
@@ -65,6 +65,4 @@ int main()
     prim(graph, m);  
     return 0;  
 }  
-¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª
-°æÈ¨ÉùÃ÷£º±¾ÎÄÎªCSDN²©Ö÷¡¸Àîµ­È»¡¹µÄÔ­´´ÎÄÕÂ£¬×ñÑ­CC 4.0 BY-SA°æÈ¨Ð­Òé£¬×ªÔØÇë¸½ÉÏÔ­ÎÄ³ö´¦Á´½Ó¼°±¾ÉùÃ÷¡£
-Ô­ÎÄÁ´½Ó£ºhttps://blog.csdn.net/qq_39630587/article/details/77427044
+
